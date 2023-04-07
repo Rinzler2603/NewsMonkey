@@ -73,13 +73,13 @@ export default class News extends Component {
         <div className="row my-4">
         {!this.state.loading && this.state.articles.map((element)=>{
             return <div className="col-md-4 my-4 " key={element.url}>
-                <NewsItem key={element.url} title={element.title?element.title:" "} description={element.description?element.description:" "} imgurl={element.urlToImage?element.urlToImage:"https://media4.s-nbcnews.com/i/newscms/2019_01/2705191/nbc-social-default_b6fa4fef0d31ca7e8bc7ff6d117ca9f4.png"} newsUrl={element.url}/>
+                <NewsItem key={element.url} title={element.title?element.title:" "} description={element.description?element.description:" "} imgurl={element.urlToImage?element.urlToImage:"https://media4.s-nbcnews.com/i/newscms/2019_01/2705191/nbc-social-default_b6fa4fef0d31ca7e8bc7ff6d117ca9f4.png"} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name}/>
             </div>
         })}
         </div>
         {!this.state.loading && <div className="container d-flex justify-content-between my-6">
-          <button type="button" disabled={this.state.page<=1} className="btn btn-secondary" onClick={this.handlePrevClick}>&larr; Previous</button>
-          <button type="button" disabled={this.state.page+1>Math.ceil(this.state.totalArt/18.0)} className="btn btn-secondary" onClick={this.handleNextClick}>Next &rarr;</button>
+          <button type="button" disabled={this.state.page<=1} className="btn btn-danger" onClick={this.handlePrevClick}>&larr; Previous</button>
+          <button type="button" disabled={this.state.page+1>Math.ceil(this.state.totalArt/18.0)} className="btn btn-danger" onClick={this.handleNextClick}>Next &rarr;</button>
         </div>}
         
       </div>
