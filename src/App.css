@@ -37,7 +37,25 @@
   }
 }
 
+body{
+  background-color: #e4c7c7!important;
+}
+
+.navbar .navbar-brand {
+  color: #ee4343;
+}
+
 .news .heading{
   margin-top: 2rem ;
   margin-bottom: 4rem;
+}
+
+/* News item */
+
+.card-body{
+  background-color: #f2a9a9;
+}
+
+.spinner img{
+  background-color: #e4c7c7;
 }

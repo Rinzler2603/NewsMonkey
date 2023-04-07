@@ -6,15 +6,15 @@ import PropTypes from 'prop-types';
 
 export default class News extends Component {
 
-  constructor(){
-    super();
-    console.log("Helllo I am a constructor from news component");
+  constructor(props){
+    super(props);
     this.state={
       articles:[],
       loading:true,
       page:1
     }
-  }
+    document.title=this.captilizeFirstLetter(this.props.category)+" - NewsMonkey";
+  };
 
   static defaultProps={
     country:"in",
@@ -29,12 +29,7 @@ export default class News extends Component {
   }
 
   async componentDidMount(){
-    let url=`https://newsapi.org/v2/top-headlines?category=${this.props.category}&country=${this.props.country}&apiKey=8c9ca3414c7f4a1cad44e1e6ab9e1528&page=1&pageSize=${this.props.pageSize}`;
-    this.setState({loading:true})
-    let data=await fetch(url);
-    let parsedData=await data.json();
-    this.setState({loading:false})
-    this.setState({articles:parsedData.articles,totalArt:parsedData.totalResults})
+    this.updateNews(this.state.page);
   }
 
   async updateNews(page){
@@ -60,11 +55,18 @@ export default class News extends Component {
     this.updateNews(this.state.page);
   }
 
+  captilizeFirstLetter=(string)=>{
+    return string.charAt(0).toUpperCase()+string.slice(1)
+  }
+
   render() {
+
+    let {category}=this.props;
+
     return (
       <div className='news container my-3 mx-3'>
         
-        <h1 className='heading text-center'>NewsMonkey - Top Headlines</h1 >
+        <h1 className='heading text-center'><strong></strong>{category==="general"?"":this.captilizeFirstLetter(category)+" - "}Top Headlines<strong/></h1 >
 
         {this.state.loading && <Spinner/>}
 
