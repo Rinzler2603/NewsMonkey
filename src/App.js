@@ -1,9 +1,8 @@
 import './App.css';
 
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import Navbar from './comp/Navbar';
 import News from './comp/News';
-import LoadingBar from 'react-top-loading-bar';
 
 // import ReactDOM from "react-dom/client";
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -49,19 +48,7 @@ const router = createBrowserRouter([
 ]);
 
 
-export default class App extends Component {
-  
-  state={
-    progress:10
-  }
-
-  // setProg(progress){
-  //   this.setState({progress:progress})
-  // }
-
-  name="Hardik";
-
-  render() {
+const App =()=>{
     return (
       <div>
         <Navbar/>
@@ -69,5 +56,6 @@ export default class App extends Component {
         <RouterProvider router={router} />
       </div>
     )
-  }
 }
+
+export default App

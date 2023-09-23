@@ -19,7 +19,7 @@ const NewsItem =(props)=>{
         <div className="card" style={{width: "18rem"}}>
             <img src={imgurl} className="card-img-top" alt="..."/>
             <div className="card-body">
-            <span class="position-absolute top-0 start-100 translate-middle badge badge text-bg-success">
+            <span className="position-absolute top-0 start-100 translate-middle badge badge text-bg-success">
                 {source}      
             </span>
 
