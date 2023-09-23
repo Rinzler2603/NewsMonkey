@@ -3,6 +3,10 @@ import './App.css';
 import React, { Component } from 'react'
 import Navbar from './comp/Navbar';
 import News from './comp/News';
+import LoadingBar from 'react-top-loading-bar';
+
+// import ReactDOM from "react-dom/client";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import {
   createBrowserRouter,
@@ -12,41 +16,48 @@ import {
 const router = createBrowserRouter([
   {
     path: "/business",
-    element: <News pageSize={6} country="in" category="business"/>
+    element: <News setProgress={(progress)=>{this.setState({progress:progress})}} pageSize={6} country="in" category="business"/>
   },
   {
     path: "/general",
-    element: <News pageSize={6} country="in" category="general"/>
+    element: <News setProgress={(progress)=>{this.setState({progress:progress})}} pageSize={6} country="in" category="general"/>
   },
   {
     path: "/",
-    element: <News pageSize={6} country="in" category="general"/>
+    element: <News setProgress={(progress)=>{this.setState({progress:progress})}} pageSize={6} country="in" category="general"/>
   },
   {
     path: "/sports",
-    element: <News pageSize={6} country="in" category="sports"/>
+    element: <News setProgress={(progress)=>{this.setState({progress:progress})}} pageSize={6} country="in" category="sports"/>
   },
   {
     path: "/health",
-    element: <News pageSize={6} country="in" category="health"/>
+    element: <News setProgress={(progress)=>{this.setState({progress:progress})}} pageSize={6} country="in" category="health"/>
   },
   {
     path: "/entertainment",
-    element: <News pageSize={6} country="in" category="entertainment"/>
+    element: <News setProgress={(progress)=>{this.setState({progress:progress})}} pageSize={6} country="in" category="entertainment"/>
   },
   {
     path: "/science",
-    element: <News pageSize={6} country="in" category="science"/>
+    element: <News setProgress={(progress)=>{this.setState({progress:progress})}} pageSize={6} country="in" category="science"/>
   },
   {
     path: "/technology",
-    element: <News pageSize={6} country="in" category="technology"/>
+    element: <News setProgress={(progress)=>{this.setState({progress:progress})}} pageSize={6} country="in" category="technology"/>
   }
 ]);
 
 
 export default class App extends Component {
   
+  state={
+    progress:10
+  }
+
+  // setProg(progress){
+  //   this.setState({progress:progress})
+  // }
 
   name="Hardik";
 
@@ -54,7 +65,12 @@ export default class App extends Component {
     return (
       <div>
         <Navbar/>
-        {/* <News pageSize={6} country="in" category="general"/> */}
+        <LoadingBar
+          color='#f11946'
+          progress={10}
+          onLoaderFinished={this.setProg(100)}
+        />
+        {/* <News  pageSize={6} country="in" category="general"/> */}
         <RouterProvider router={router} />
       </div>
     )
