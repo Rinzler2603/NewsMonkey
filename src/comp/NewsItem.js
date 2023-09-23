@@ -7,7 +7,6 @@ const NewsItem =(props)=>{
   //   author: "anonoymous",
   //   date:"unknown date"
   // }
-
   // static propTypes={
   //   author:PropTypes.string,
   //   date:PropTypes.string
