@@ -1,21 +1,19 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 
-export default class NewsItem extends Component {
+const NewsItem =(props)=>{
 
-  static defaultProps={
-    author: "anonoymous",
-    date:"unknown date"
-  }
+  // static defaultProps={
+  //   author: "anonoymous",
+  //   date:"unknown date"
+  // }
 
-  static propTypes={
-    author:PropTypes.string,
-    date:PropTypes.string
-  }
+  // static propTypes={
+  //   author:PropTypes.string,
+  //   date:PropTypes.string
+  // }
 
-  render() {
-
-    let {title, description,imgurl,newsUrl,author,date,source}=this.props;
+    let {title, description,imgurl,newsUrl,author,date,source}=props;
     
     return (
       <div>
@@ -34,5 +32,6 @@ export default class NewsItem extends Component {
         </div>
       </div>
     )
-  }
 }
+
+export default NewsItem

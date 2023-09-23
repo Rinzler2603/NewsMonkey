@@ -65,11 +65,6 @@ export default class App extends Component {
     return (
       <div>
         <Navbar/>
-        <LoadingBar
-          color='#f11946'
-          progress={10}
-          onLoaderFinished={this.setProg(100)}
-        />
         {/* <News  pageSize={6} country="in" category="general"/> */}
         <RouterProvider router={router} />
       </div>

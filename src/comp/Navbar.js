@@ -1,12 +1,7 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types'
 
-export class Navbar extends Component {
-  static propTypes = {
-
-  }
-
-  render() {
+const Navbar=()=>{
     return (
       <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
@@ -43,7 +38,6 @@ export class Navbar extends Component {
         </div>
       </nav>
     )
-  }
 }
 
 export default Navbar
